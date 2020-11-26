@@ -43,6 +43,46 @@ def _2_(arglen,command,com_arg,path,historydir,origin,func,var,browserPath,arg0,
             var[com_arg[1]] = data
             return
 
+        if command[0]=='addcontent':
+            sub=0
+            print("\nFile:{}\n".format(com_arg[0]))
+            for con in com_arg[1]:
+                try:
+                    file = open(path+"\\"+com_arg[0],'a')
+                    if con=='[sub]':
+                        sub+=4
+                        continue
+                    if con=='[RunFile]':
+                        con = "#RunFile"
+                    if con=='[endsub]':
+                        sub=sub-4
+                        if sub<=0:
+                            sub=0
+                        continue
+                    if "$$" in con:
+                        conli = con.split("$$")
+                        consubli = []
+                        consubsubli = []
+                        for cl in conli:
+                            cl = cl.strip()
+                            clli = cl.split(" ")
+                            consubli.append(clli)
+                        for clx in consubli:
+                            consubsubli.append(clx[0])
+                        for cli in consubsubli:
+                            if cli in var:
+                                con = con.replace("$$"+cli,var[cli])
+                    file.write(" "*sub+con+"\n")
+                except:
+                    print("\nrf5>>An unexpected error occured. File will be closed.")
+                    file.close()
+                    break
+                else:
+                    pass
+            file.close()
+            print("\nrf5>>New content has been added.")
+            return
+
         if command[0]=='int':
             if com_arg[0] in commandlist:
                 print("rf5>>Invalid variable name.")
