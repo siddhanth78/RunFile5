@@ -44,7 +44,7 @@ arg1 = ['newhomepath','delfile','createfile','addcontent','runfile','funclist','
         'searchhistory','error','warn','info','tip','box','msg','star',
         'int','string','float','list','tuple','type']
 
-arg2 = ['runfunc','findfunc','box','int','string','float','list','store','storelines','tuple']
+arg2 = ['runfunc','findfunc','box','int','string','float','list','store','storelines','tuple','addcontent']
 
 arg3 = ['msg','star','menu','int','string','float','list','tuple']
 
