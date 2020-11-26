@@ -319,6 +319,19 @@ def _1_(arglen,command,com_arg,path,historydir,origin,func,var,browserPath,arg0,
                         if sub<=0:
                             sub=0
                         continue
+                    if "::" in con:
+                        conli = con.split("::")
+                        consubli = []
+                        consubsubli = []
+                        for cl in conli:
+                            cl = cl.strip()
+                            clli = cl.split(" ")
+                            consubli.append(clli)
+                        for clx in consubli:
+                            consubsubli.append(clx[0])
+                        for cli in consubsubli:
+                            if cli in var:
+                                con = con.replace("::"+cli,var[cli])
                     if con=='[endfile]':
                         file.close()
                         print("\nrf5>>New content has been added.")
