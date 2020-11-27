@@ -213,6 +213,7 @@ def _2_(arglen,command,com_arg,path,historydir,origin,func,var,browserPath,arg0,
                         pass
                 if flagname==0:
                     return
+                fl=0
                 try:
                     typeliarg=[]
                     typeli = com_arg[1].split(",")
