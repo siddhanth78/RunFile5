@@ -359,8 +359,22 @@ while True:
                         var[command[0]].append([com_arg[1]])
                         continue
                     typeli = com_arg[1].split(",")
+                    fl=0
                     for i in typeli:
+                        if fl==1:
+                            typeliarg[-1] = typeliarg[-1]+i
+                            fl=0
+                            continue
                         i = i.strip()
+                        if i[-1]=="\\":
+                            i = list(i)
+                            ele = ""
+                            for n in range(len(i)):
+                                if i[n]=="\\":
+                                    i[n] = ","
+                                ele = ele+i[n]
+                            i = ele
+                            fl = 1
                         if i.isnumeric()==True:
                             i = eval(i)
                         else:
@@ -382,8 +396,22 @@ while True:
                         var[command[0]].extend([com_arg[1]])
                         continue
                     typeli = com_arg[1].split(",")
+                    fl=0
                     for i in typeli:
+                        if fl==1:
+                            typeliarg[-1] = typeliarg[-1]+i
+                            fl=0
+                            continue
                         i = i.strip()
+                        if i[-1]=="\\":
+                            i = list(i)
+                            ele = ""
+                            for n in range(len(i)):
+                                if i[n]=="\\":
+                                    i[n] = ","
+                                ele = ele+i[n]
+                            i = ele
+                            fl = 1
                         if i.isnumeric()==True:
                             i = eval(i)
                         else:
@@ -436,7 +464,7 @@ while True:
                 print("rf5>>Invalid input.")
         elif len(com_arg)==3:
             if com_arg[2] in var:
-                    com_arg[2] = var[com_arg[2]]
+                com_arg[2] = var[com_arg[2]]
             if isinstance(var[command[0]],str) or isinstance(var[command[0]],list) or isinstance(var[command[0]],tuple):
                 if "," in com_arg[0]:
                     try:
@@ -521,8 +549,22 @@ while True:
                                     var[command[0]][outer][inner] = list(com_arg[2])
                                     continue
                                 typeli = com_arg[2].split(",")
+                                fl=0
                                 for i in typeli:
+                                    if fl==1:
+                                        typeliarg[-1] = typeliarg[-1]+i
+                                        fl=0
+                                        continue
                                     i = i.strip()
+                                    if i[-1]=="\\":
+                                        i = list(i)
+                                        ele = ""
+                                        for n in range(len(i)):
+                                            if i[n]=="\\":
+                                                i[n] = ","
+                                            ele = ele+i[n]
+                                        i = ele
+                                        fl = 1
                                     if i.isnumeric()==True:
                                         i = eval(i)
                                     else:
@@ -540,14 +582,28 @@ while True:
                                     var[command[0]][outer][inner] = tuple(com_arg[2])
                                     continue
                                 typeli = com_arg[2].split(",")
+                                fl=0
                                 for i in typeli:
+                                    if fl==1:
+                                        typeliarg[-1] = typeliarg[-1]+i
+                                        fl=0
+                                        continue
                                     i = i.strip()
+                                    if i[-1]=="\\":
+                                        i = list(i)
+                                        ele = ""
+                                        for n in range(len(i)):
+                                            if i[n]=="\\":
+                                                i[n] = ","
+                                            ele = ele+i[n]
+                                        i = ele
+                                        fl = 1
                                     if i.isnumeric()==True:
                                         i = eval(i)
                                     else:
                                         pass
                                     typeliarg.append(i)
-                                var[command[0]][outer][inner] = typeliarg
+                                var[command[0]][outer][inner] = tuple(typeliarg)
                             except:
                                 print("rf5>>Invalid input.")
                             else:
@@ -635,8 +691,22 @@ while True:
                                     var[command[0]][ind] = list(com_arg[2])
                                     continue
                                 typeli = com_arg[2].split(",")
+                                fl=0
                                 for i in typeli:
+                                    if fl==1:
+                                        typeliarg[-1] = typeliarg[-1]+i
+                                        fl=0
+                                        continue
                                     i = i.strip()
+                                    if i[-1]=="\\":
+                                        i = list(i)
+                                        ele = ""
+                                        for n in range(len(i)):
+                                            if i[n]=="\\":
+                                                i[n] = ","
+                                            ele = ele+i[n]
+                                        i = ele
+                                        fl = 1
                                     if i.isnumeric()==True:
                                         i = eval(i)
                                     else:
@@ -654,14 +724,28 @@ while True:
                                     var[command[0]][ind] = tuple(com_arg[2])
                                     continue
                                 typeli = com_arg[2].split(",")
+                                fl=0
                                 for i in typeli:
+                                    if fl==1:
+                                        typeliarg[-1] = typeliarg[-1]+i
+                                        fl=0
+                                        continue
                                     i = i.strip()
+                                    if i[-1]=="\\":
+                                        i = list(i)
+                                        ele = ""
+                                        for n in range(len(i)):
+                                            if i[n]=="\\":
+                                                i[n] = ","
+                                            ele = ele+i[n]
+                                        i = ele
+                                        fl = 1
                                     if i.isnumeric()==True:
                                         i = eval(i)
                                     else:
                                         pass
                                     typeliarg.append(i)
-                                var[command[0]][ind] = typeliarg
+                                var[command[0]][ind] = tuple(typeliarg)
                             except:
                                 print("rf5>>Invalid input.")
                             else:
