@@ -46,8 +46,22 @@ def _3_(arglen,command,com_arg,path,historydir,origin,func,var,browserPath,arg0,
                     var[com_arg[0]] = str(disp.prompt(com_arg[2]))
                     typeliarg=[]
                     typeli = var[com_arg[0]].split(",")
+                    fl=0
                     for i in typeli:
+                        if fl==1:
+                            typeliarg[-1] = typeliarg[-1]+i
+                            fl=0
+                            continue
                         i = i.strip()
+                        if i[-1]=="\\":
+                            i = list(i)
+                            ele = ""
+                            for n in range(len(i)):
+                                if i[n]=="\\":
+                                    i[n] = ","
+                                ele = ele+i[n]
+                            i = ele
+                            fl = 1
                         if i.isnumeric()==True:
                             i = eval(i)
                         else:
@@ -63,8 +77,22 @@ def _3_(arglen,command,com_arg,path,historydir,origin,func,var,browserPath,arg0,
                     var[com_arg[0]] = str(disp.prompt(com_arg[2]))
                     typeliarg=[]
                     typeli = var[com_arg[0]].split(",")
+                    fl=0
                     for i in typeli:
+                        if fl==1:
+                            typeliarg[-1] = typeliarg[-1]+i
+                            fl=0
+                            continue
                         i = i.strip()
+                        if i[-1]=="\\":
+                            i = list(i)
+                            ele = ""
+                            for n in range(len(i)):
+                                if i[n]=="\\":
+                                    i[n] = ","
+                                ele = ele+i[n]
+                            i = ele
+                            fl = 1
                         if i.isnumeric()==True:
                             i = eval(i)
                         else:
@@ -107,8 +135,22 @@ def _3_(arglen,command,com_arg,path,historydir,origin,func,var,browserPath,arg0,
             if type(com_arg[2])!=list:
                 typeliarg=[]
                 typeli = com_arg[2].split(",")
+                fl=0
                 for i in typeli:
+                    if fl==1:
+                        typeliarg[-1] = typeliarg[-1]+i
+                        fl=0
+                        continue
                     i = i.strip()
+                    if i[-1]=="\\":
+                        i = list(i)
+                        ele = ""
+                        for n in range(len(i)):
+                            if i[n]=="\\":
+                                i[n] = ","
+                            ele = ele+i[n]
+                        i = ele
+                        fl = 1
                     if i.isnumeric()==True:
                         i = eval(i)
                     else:
