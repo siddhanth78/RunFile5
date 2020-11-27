@@ -17,10 +17,6 @@ def _2_(arglen,command,com_arg,path,historydir,origin,func,var,browserPath,arg0,
             
         if com_arg[0] in var and command[0] not in types:
             com_arg[0] = var[com_arg[0]]
-        elif com_arg[0]=='_file_':
-            com_arg[0] = contentkey.get('_file_')
-        elif com_arg[0]=='_lines_':
-            com_arg[0] = contentkey.get('_lines_')
 
         if com_arg[1] in var:
             com_arg[1] = var[com_arg[1]]
@@ -170,12 +166,26 @@ def _2_(arglen,command,com_arg,path,historydir,origin,func,var,browserPath,arg0,
                         pass
                 if flagname==0:
                     return
+                fl=0
                 try:
                     typeliarg=[]
                     typeli = com_arg[1].split(",")
                     for i in typeli:
+                        if fl==1:
+                            typeliarg[-1] = typeliarg[-1]+i
+                            fl=0
+                            continue
                         i = i.strip()
-                        if i.isnumeric()==True:
+                        if i[-1]=="\\":
+                            i = list(i)
+                            ele = ""
+                            for n in range(len(i)):
+                                if i[n]=="\\":
+                                    i[n] = ","
+                                ele = ele+i[n]
+                            i = ele
+                            fl = 1
+                        elif i.isnumeric()==True:
                             i = eval(i)
                         else:
                             pass
@@ -207,8 +217,21 @@ def _2_(arglen,command,com_arg,path,historydir,origin,func,var,browserPath,arg0,
                     typeliarg=[]
                     typeli = com_arg[1].split(",")
                     for i in typeli:
+                        if fl==1:
+                            typeliarg[-1] = typeliarg[-1]+i
+                            fl=0
+                            continue
                         i = i.strip()
-                        if i.isnumeric()==True:
+                        if i[-1]=="\\":
+                            i = list(i)
+                            ele = ""
+                            for n in range(len(i)):
+                                if i[n]=="\\":
+                                    i[n] = ","
+                                ele = ele+i[n]
+                            i = ele
+                            fl = 1
+                        elif i.isnumeric()==True:
                             i = eval(i)
                         else:
                             pass
