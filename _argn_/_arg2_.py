@@ -41,7 +41,7 @@ def _2_(arglen,command,com_arg,path,historydir,origin,func,var,browserPath,arg0,
 
         if command[0]=='addcontent':
             sub=0
-            print("\nFile:{}\n".format(com_arg[0]))
+            print("\nFile:{}".format(com_arg[0]))
             for con in com_arg[1]:
                 try:
                     file = open(path+"\\"+com_arg[0],'a')
