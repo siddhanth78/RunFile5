@@ -171,6 +171,7 @@ def for_loop(lvar,loopli,forcode,arglen,command,com_arg,path,historydir,origin,f
                         for cli in consubsubli:
                             if cli in var:
                                 con = con.replace("|"+cli+"|",str(var[cli]))
+                                var[command[0]] = con
                 if len(com_arg)==0:
                     print(var[command[0]])
                 elif len(com_arg)==1:
