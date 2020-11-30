@@ -290,6 +290,8 @@ while True:
                         clli = cl.split(" ")
                         consubli.append(clli)
                     for clx in consubli:
+                        clx[0] = clx[0].strip()
+                        clx[0] = clx[0].strip("!@#$%^&*()-+=:;><?/\|',.~`1234567890")
                         consubsubli.append(clx[0])
                     for cli in consubsubli:
                         if cli in var:
@@ -305,10 +307,13 @@ while True:
                     clli = cl.split(" ")
                     consubli.append(clli)
                 for clx in consubli:
+                    clx[0] = clx[0].strip()
+                    clx[0] = clx[0].strip("!@#$%^&*()-+=:;><?/\|',.~`1234567890")
                     consubsubli.append(clx[0])
                 for cli in consubsubli:
                     if cli in var:
                         con = con.replace("$$"+cli,str(var[cli]))
+                        var[command[0]] = con
         if len(com_arg)==0:
             print(var[command[0]])
         elif len(com_arg)==1:
