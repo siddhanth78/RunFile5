@@ -696,7 +696,7 @@ def for_loop(lvar,loopli,forcode,arglen,command,com_arg,path,historydir,origin,f
 
         
             continue
-    return
+    return path,origin
 
         
 
