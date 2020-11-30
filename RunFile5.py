@@ -169,7 +169,7 @@ while True:
             if runloop_==0:
                 print("rf5>>No loops found.")
                 continue
-            for_loop.for_loop(var["_loopvar_"],loopli,forcode,len(com_arg),command,com_arg,path,historydir,origin,func,var,browserPath,arg0,arg1,arg2,arg3,invalidnames,commandlist)
+            path,origin = for_loop.for_loop(var["_loopvar_"],loopli,forcode,len(com_arg),command,com_arg,path,historydir,origin,func,var,browserPath,arg0,arg1,arg2,arg3,invalidnames,commandlist)
             print()
             delete = var.pop(var["_loopvar_"],None)
             del var["_loopvar_"]
