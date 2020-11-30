@@ -148,6 +148,8 @@ def for_loop(lvar,loopli,forcode,arglen,command,com_arg,path,historydir,origin,f
                                 clli = cl.split(" ")
                                 consubli.append(clli)
                             for clx in consubli:
+                                clx[0] = clx[0].strip()
+                                clx[0] = clx[0].strip("!@#$%^&*()-+=:;><?/\|',.~`1234567890")
                                 consubsubli.append(clx[0])
                             for cli in consubsubli:
                                 if cli in var:
@@ -163,6 +165,8 @@ def for_loop(lvar,loopli,forcode,arglen,command,com_arg,path,historydir,origin,f
                             clli = cl.split(" ")
                             consubli.append(clli)
                         for clx in consubli:
+                            clx[0] = clx[0].strip()
+                            clx[0] = clx[0].strip("!@#$%^&*()-+=:;><?/\|',.~`1234567890")
                             consubsubli.append(clx[0])
                         for cli in consubsubli:
                             if cli in var:
