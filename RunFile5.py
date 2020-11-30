@@ -281,8 +281,8 @@ while True:
     if command[0] in var:
         if isinstance(var[command[0]],list) or isinstance(var[command[0]],tuple):
             for con in range(len(var[command[0]])):
-                if "$$" in str(var[command[0]][con]):
-                    conli = var[command[0]][con].split("$$")
+                if "|" in str(var[command[0]][con]):
+                    conli = var[command[0]][con].split("|")
                     consubli = []
                     consubsubli = []
                     for cl in conli:
@@ -295,11 +295,11 @@ while True:
                         consubsubli.append(clx[0])
                     for cli in consubsubli:
                         if cli in var:
-                            var[command[0]][con] = var[command[0]][con].replace("$$"+cli,str(var[cli]))
+                            var[command[0]][con] = var[command[0]][con].replace("|"+cli+"|",str(var[cli]))
         if isinstance(var[command[0]],str):
             con = str(var[command[0]])
-            if "$$" in con:
-                conli = con.split("$$")
+            if "|" in con:
+                conli = con.split("|")
                 consubli = []
                 consubsubli = []
                 for cl in conli:
@@ -312,7 +312,7 @@ while True:
                     consubsubli.append(clx[0])
                 for cli in consubsubli:
                     if cli in var:
-                        con = con.replace("$$"+cli,str(var[cli]))
+                        con = con.replace("|"+cli+"|",str(var[cli]))
                         var[command[0]] = con
         if len(com_arg)==0:
             print(var[command[0]])
@@ -806,7 +806,6 @@ while True:
         continue
     else:
         pass
-
 
     if arglen==1:
 
