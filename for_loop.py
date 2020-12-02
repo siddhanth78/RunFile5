@@ -682,7 +682,7 @@ def for_loop(lvar,loopli,forcode,arglen,command,com_arg,path,historydir,origin,f
                                 consubsubli.append(clx[0])
                             for cli in consubsubli:
                                 if cli in var:
-                                    var[com_arg[x]][con] = com_arg[x][con] = com_arg[x][con].replace("|"+cli+"|",str(var[cli]))
+                                    com_arg[x][con] = com_arg[x][con].replace("|"+cli+"|",str(var[cli]))
                 if isinstance(com_arg[x],str):
                     con = str(com_arg[x])
                     if "|" in con:
@@ -700,7 +700,7 @@ def for_loop(lvar,loopli,forcode,arglen,command,com_arg,path,historydir,origin,f
                         for cli in consubsubli:
                             if cli in var:
                                 con = con.replace("|"+cli+"|",str(var[cli]))
-                                var[com_arg[x]] = com_arg[x] = con
+                                com_arg[x] = con
 
 
             if arglen==1:
