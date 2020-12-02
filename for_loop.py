@@ -665,6 +665,43 @@ def for_loop(lvar,loopli,forcode,arglen,command,com_arg,path,historydir,origin,f
             else:
                 pass
 
+            for x in range(len(com_arg)):
+                if isinstance(com_arg[x],list) or isinstance(com_arg[x],tuple):
+                    for con in range(len(com_arg[x])):
+                        if "|" in str(com_arg[x][con]):
+                            conli = com_arg[x][con].split("|")
+                            consubli = []
+                            consubsubli = []
+                            for cl in conli:
+                                cl = cl.strip()
+                                clli = cl.split(" ")
+                                consubli.append(clli)
+                            for clx in consubli:
+                                clx[0] = clx[0].strip()
+                                clx[0] = clx[0].strip("!@#$%^&*()-+=:;><?/\|',.~`1234567890")
+                                consubsubli.append(clx[0])
+                            for cli in consubsubli:
+                                if cli in var:
+                                    var[com_arg[x]][con] = com_arg[x][con] = com_arg[x][con].replace("|"+cli+"|",str(var[cli]))
+                if isinstance(com_arg[x],str):
+                    con = str(com_arg[x])
+                    if "|" in con:
+                        conli = con.split("|")
+                        consubli = []
+                        consubsubli = []
+                        for cl in conli:
+                            cl = cl.strip()
+                            clli = cl.split(" ")
+                            consubli.append(clli)
+                        for clx in consubli:
+                            clx[0] = clx[0].strip()
+                            clx[0] = clx[0].strip("!@#$%^&*()-+=:;><?/\|',.~`1234567890")
+                            consubsubli.append(clx[0])
+                        for cli in consubsubli:
+                            if cli in var:
+                                con = con.replace("|"+cli+"|",str(var[cli]))
+                                var[com_arg[x]] = com_arg[x] = con
+
 
             if arglen==1:
 
