@@ -281,7 +281,7 @@ while True:
     if command[0] in var:
         if isinstance(var[command[0]],list) or isinstance(var[command[0]],tuple):
             for con in range(len(var[command[0]])):
-                if "|" in str(com_arg[x][con]):
+                if "|" in str(var[command[0]][con]):
                     conli = var[command[0]][con].split("|")
                     consubli = []
                     consubsubli = []
@@ -295,7 +295,7 @@ while True:
                         consubsubli.append(clx[0])
                     for cli in consubsubli:
                         if cli in var:
-                            var[command[0]][con] = com_arg[x][con].replace("|"+cli+"|",str(var[cli]))
+                            var[command[0]][con] = var[command[0]][con].replace("|"+cli+"|",str(var[cli]))
         if isinstance(var[command[0]],str):
             con = str(var[command[0]])
             if "|" in con:
@@ -823,7 +823,7 @@ while True:
                         consubsubli.append(clx[0])
                     for cli in consubsubli:
                         if cli in var:
-                            var[com_arg[x]][con] = com_arg[x][con] = com_arg[x][con].replace("|"+cli+"|",str(var[cli]))
+                            com_arg[x][con] = com_arg[x][con].replace("|"+cli+"|",str(var[cli]))
         if isinstance(com_arg[x],str):
             con = str(com_arg[x])
             if "|" in con:
@@ -841,7 +841,7 @@ while True:
                 for cli in consubsubli:
                     if cli in var:
                         con = con.replace("|"+cli+"|",str(var[cli]))
-                        var[com_arg[x]] = com_arg[x] = con
+                        com_arg[x] = con
 
     if arglen==1:
 
