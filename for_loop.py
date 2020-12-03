@@ -650,7 +650,6 @@ def for_loop(lvar,loopli,forcode,arglen,command,com_arg,path,historydir,origin,f
                                 pass
                 else:
                     print("rf5>>Invalid input.")
-                continue
 
             if command[0] not in commandlist:
                 print("rf5>>Command '{}' doesn't exist. Enter 'help' for more info.".format(command[0]))
