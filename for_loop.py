@@ -301,7 +301,7 @@ def for_loop(lvar,loopli,forcode,arglen,command,com_arg,path,historydir,origin,f
                                 if com_arg[1]=="type":
                                     print(type(var[command[0]][outer][inner]))
                             except:
-                                print("rf5>>List index out of range.")
+                                print("rf5>>Index out of range.")
                                 continue
                             else:
                                 pass
@@ -314,7 +314,7 @@ def for_loop(lvar,loopli,forcode,arglen,command,com_arg,path,historydir,origin,f
                                 if com_arg[1]=="type":
                                     print(type(var[command[0]][ind]))
                             except:
-                                print("rf5>>List index out of range.")
+                                print("rf5>>Index out of range.")
                                 continue
                             else:
                                 pass
@@ -467,7 +467,7 @@ def for_loop(lvar,loopli,forcode,arglen,command,com_arg,path,historydir,origin,f
                                     else:
                                         pass
                             except:
-                                print("rf5>>List index out of range.")
+                                print("rf5>>Index out of range.")
                                 continue
                             else:
                                 pass
@@ -609,7 +609,7 @@ def for_loop(lvar,loopli,forcode,arglen,command,com_arg,path,historydir,origin,f
                                     else:
                                         pass
                             except:
-                                print("rf5>>List index out of range.")
+                                print("rf5>>Index out of range.")
                                 continue
                             else:
                                 pass
