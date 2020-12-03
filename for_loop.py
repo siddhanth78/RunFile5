@@ -137,41 +137,6 @@ def for_loop(lvar,loopli,forcode,arglen,command,com_arg,path,historydir,origin,f
                 continue
 
             if command[0] in var:
-                if isinstance(var[command[0]],list) or isinstance(var[command[0]],tuple):
-                    for con in range(len(var[command[0]])):
-                        if "|" in str(var[command[0]][con]):
-                            conli = var[command[0]][con].split("|")
-                            consubli = []
-                            consubsubli = []
-                            for cl in conli:
-                                cl = cl.strip()
-                                clli = cl.split(" ")
-                                consubli.append(clli)
-                            for clx in consubli:
-                                clx[0] = clx[0].strip()
-                                clx[0] = clx[0].strip("!@#$%^&*()-+=:;><?/\|',.~`1234567890")
-                                consubsubli.append(clx[0])
-                            for cli in consubsubli:
-                                if cli in var:
-                                    var[command[0]][con] = var[command[0]][con].replace("|"+cli+"|",str(var[cli]))
-                if isinstance(var[command[0]],str):
-                    con = str(var[command[0]])
-                    if "|" in con:
-                        conli = con.split("|")
-                        consubli = []
-                        consubsubli = []
-                        for cl in conli:
-                            cl = cl.strip()
-                            clli = cl.split(" ")
-                            consubli.append(clli)
-                        for clx in consubli:
-                            clx[0] = clx[0].strip()
-                            clx[0] = clx[0].strip("!@#$%^&*()-+=:;><?/\|',.~`1234567890")
-                            consubsubli.append(clx[0])
-                        for cli in consubsubli:
-                            if cli in var:
-                                con = con.replace("|"+cli+"|",str(var[cli]))
-                                var[command[0]] = con
                 if len(com_arg)==0:
                     print(var[command[0]])
                 elif len(com_arg)==1:
@@ -651,6 +616,43 @@ def for_loop(lvar,loopli,forcode,arglen,command,com_arg,path,historydir,origin,f
                 else:
                     print("rf5>>Invalid input.")
 
+            
+                if isinstance(var[command[0]],list) or isinstance(var[command[0]],tuple):
+                    for con in range(len(var[command[0]])):
+                        if "|" in str(var[command[0]][con]):
+                            conli = var[command[0]][con].split("|")
+                            consubli = []
+                            consubsubli = []
+                            for cl in conli:
+                                cl = cl.strip()
+                                clli = cl.split(" ")
+                                consubli.append(clli)
+                            for clx in consubli:
+                                clx[0] = clx[0].strip()
+                                clx[0] = clx[0].strip("!@#$%^&*()-+=:;><?/\|',.~`1234567890")
+                                consubsubli.append(clx[0])
+                            for cli in consubsubli:
+                                if cli in var:
+                                    var[command[0]][con] = var[command[0]][con].replace("|"+cli+"|",str(var[cli]))
+                if isinstance(var[command[0]],str):
+                    con = str(var[command[0]])
+                    if "|" in con:
+                        conli = con.split("|")
+                        consubli = []
+                        consubsubli = []
+                        for cl in conli:
+                            cl = cl.strip()
+                            clli = cl.split(" ")
+                            consubli.append(clli)
+                        for clx in consubli:
+                            clx[0] = clx[0].strip()
+                            clx[0] = clx[0].strip("!@#$%^&*()-+=:;><?/\|',.~`1234567890")
+                            consubsubli.append(clx[0])
+                        for cli in consubsubli:
+                            if cli in var:
+                                con = con.replace("|"+cli+"|",str(var[cli]))
+                                var[command[0]] = con
+
             elif command[0] not in commandlist:
                 print("rf5>>Command '{}' doesn't exist. Enter 'help' for more info.".format(command[0]))
                 continue
@@ -730,7 +732,6 @@ def for_loop(lvar,loopli,forcode,arglen,command,com_arg,path,historydir,origin,f
 
                 _arg3_._3_(arglen,command,com_arg,path,historydir,origin,func,var,browserPath,arg0,arg1,arg2,arg3,invalidnames,commandlist)
 
-        
             continue
     return path,origin
 
