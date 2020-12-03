@@ -478,7 +478,7 @@ while True:
                         if com_arg[1]=="type":
                             print(type(var[command[0]][outer][inner]))
                     except:
-                        print("rf5>>List index out of range.")
+                        print("rf5>>Index out of range.")
                         continue
                     else:
                         pass
@@ -491,7 +491,7 @@ while True:
                         if com_arg[1]=="type":
                             print(type(var[command[0]][ind]))
                     except:
-                        print("rf5>>List index out of range.")
+                        print("rf5>>Index out of range.")
                         continue
                     else:
                         pass
@@ -644,7 +644,7 @@ while True:
                             else:
                                 pass
                     except:
-                        print("rf5>>List index out of range.")
+                        print("rf5>>Index out of range.")
                         continue
                     else:
                         pass
@@ -786,7 +786,7 @@ while True:
                             else:
                                 pass
                     except:
-                        print("rf5>>List index out of range.")
+                        print("rf5>>Index out of range.")
                         continue
                     else:
                         pass
