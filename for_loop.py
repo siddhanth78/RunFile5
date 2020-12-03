@@ -101,8 +101,6 @@ def evaluate(com,arguments):
     else:
         return expr
 
-ct = 0
-
 def for_loop(lvar,loopli,forcode,arglen,command,com_arg,path,historydir,origin,func,var,browserPath,arg0,arg1,arg2,arg3,invalidnames,commandlist):
 
     for itr in loopli:
